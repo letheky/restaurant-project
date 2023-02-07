@@ -1,0 +1,326 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 100%;
+    max-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color:#474747;
+}
+
+
+:root {
+    --three-dimensions-card-left-side-width: 1rem;
+}
+
+.navbar{
+    display: flex;
+    margin: auto;
+    background-color: #fcd34d;
+    box-shadow: 0 3px 3px #dbdfdf;
+}
+
+.navbar>a>img{
+    width:100px;
+    aspect-ratio: 1;
+}
+.navbar>ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    margin:auto
+}
+.navbar > ul >li{
+    list-style: none;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    color: #4ade80;
+    font-size: 34px;
+    position: relative;
+}
+.navbar > ul >li:hover{
+    cursor: pointer;
+    color:#16a34a;
+}
+.navbar >ul >li.active{
+    color:#16a34a;
+}
+.navbar >ul >li.active::before{
+    position:absolute;
+    content:'';
+    width:80%;
+    height:5px;
+    background-color:#16a34a;;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.banner{
+    padding: 10px 20px;
+    display: grid;
+    gap:20px;
+}
+.banner img{
+    width:200px;
+    border-radius:10px;
+}
+.banner h3{
+    margin-bottom: 10px;
+}
+.banner-block{
+    padding: 10px;
+    display: flex;
+    gap:30px;
+    box-shadow: -5px 5px 10px #dddddd;
+    border-radius:10px;
+}
+.banner-block:nth-child(2n+1){
+    flex-direction: row-reverse;
+    box-shadow: 5px 5px 10px #dddddd;
+}
+
+.dishes{
+    padding: 20px 100px;
+    display: grid;
+    gap:40px;
+    grid-template-columns: repeat(3,300px);
+    grid-template-rows: repeat(2,200px);
+    place-items: center;
+}
+
+.dishes img{
+    width:100px;
+    aspect-ratio: 1;
+}
+.dishes h3{
+    margin-bottom: 10px;
+}
+
+.dish-block {
+    display: flex;
+    gap:10px;
+    padding: 10px;
+    background-color: #fcd34d;
+    box-shadow: 5px 5px 5px #e2e2e2;
+    width: 300px;
+    height: 150px;
+    border-radius: 3px;
+    position: relative;
+}
+
+/* The left side */
+.dish-block::before {
+    background: #fde288;
+    content: '';
+
+    /* Position */
+    top: var(--three-dimensions-card-left-side-width);
+    left: 0px;
+    position: absolute;
+    transform: translate(-100%, 0) skewY(-45deg);
+    transform-origin: left top;
+
+    /* Size */
+    height: 100%;
+    width: var(--three-dimensions-card-left-side-width);
+}
+
+/* The bottom side */
+.dish-block::after {
+    background: #fde288;
+    content: '';
+
+    /* Position */
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    transform: translate(0, 100%) skewX(-45deg);
+    transform-origin: left top;
+
+    /* Size */
+    height: var(--three-dimensions-card-left-side-width);
+    width: 100%;
+}
+/* .dish-block:nth-child(n+4){
+    flex-direction: row-reverse;
+} */
+.footer{
+    padding: 20px 0;
+    font-size: 20px;
+    background-color: #474747;
+    color:#fff;
+}
+
+/* Contact form */
+form.contact-form{
+    padding:50px 0;
+    display: grid;
+    grid-template-areas: "a b"
+    "a b"
+    "a b"
+    "c c";
+    place-items:center;
+    gap:50px;
+    background: #DCE35B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 50px 20%;
+    border-radius: 10px;
+}
+.form-block{
+    display: grid;
+}
+.form-block label{
+    font-weight: 700;
+    font-size: 20px;
+}
+.form-block input{
+    min-width: 300px;
+    padding:5px 10px;
+    border-radius: 3px;
+    outline: none;
+    border:1px solid #333;
+    font-size: 15px;
+}
+.primary-btn{
+    grid-area: c;
+    width:fit-content;
+    padding:10px 20px;
+    font-size: 24px;
+    background-color: #fcd34d;
+    border-radius: 5px;
+}
+.primary-btn:hover{
+    background-color: #4ade80;
+    color:#ffffff;
+    cursor: pointer;
+}
+
+/* CSS for dishes page */
+/* .hot-dishes {
+    width: 100vw;
+    height: 200px;
+} */
+
+@keyframes display {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    10% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    30% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+}
+@keyframes scrollUp {
+    0% {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    30% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+.hot-dishes {
+    position: relative;
+    max-width: 400px;
+    height: 300px;
+    margin: 20px auto;
+}
+.hot-dishes>h3{
+    font-size: 30px;
+    text-align: center;
+    color:#ef4444;
+    text-shadow:3px 3px 7px #ef4444;
+}
+.hot-dishes-block {
+    margin-top: 60px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 100px);
+    opacity: 0;
+    animation: display 10s infinite;
+    width:200px;
+    aspect-ratio: 1;
+}
+
+.hot-dishes > .hot-dishes-block:nth-child(3) {
+    animation-delay: 2s;
+}
+.hot-dishes > .hot-dishes-block:nth-child(4) {
+    animation-delay: 4s;
+}
+.hot-dishes > .hot-dishes-block:nth-child(5) {
+    animation-delay: 6s;
+}
+.hot-dishes > .hot-dishes-block:nth-child(6) {
+    animation-delay: 8s;
+}
+.hot-dishes > .hot-dishes-block > img{
+    width:200px;
+    aspect-ratio: 1;
+}
+
+
+.all-dishes{
+    display: flex;
+    flex-wrap: wrap;
+    margin:30px 10%;
+}
+.all-dishes .all-dishes-block{
+    display: flex;
+    position: relative;
+    flex-basis: 33.33333%;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.all-dishes .all-dishes-block>img{
+    width: 200px;
+    height:200px;
+}
+.all-dishes .all-dishes-block .adb-content{
+    position: absolute;
+    margin: 0 60px;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    padding: 0px 10px;
+}
